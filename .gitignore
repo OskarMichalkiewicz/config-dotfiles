@@ -1,4 +1,7 @@
 /*
+**/lazy-lock.json
 
 !.gitignore
+!starship.toml
 !nvim
+
