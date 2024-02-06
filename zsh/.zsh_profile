@@ -1,0 +1,13 @@
+VIM="nvim"
+export GIT_EDITOR=$VIM
+export DOTFILES=$HOME/dotfiles
+source $DOTFILES/env
+
+for i in `find -L $PERSONAL`; do
+    source $i
+done
+
+
+addToPathFront $HOME/.local/scripts
+
+bindkey -s ^f "tmux-sessionizer\n"
