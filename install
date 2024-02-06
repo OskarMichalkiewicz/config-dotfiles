@@ -2,6 +2,9 @@
 #!/usr/bin/env zsh
 
 pushd $DOTFILES
+
+source $DOTFILES/env
+
 for folder in $(echo $STOW_FOLDERS | sed "s/,/ /g")
 do
     echo "stow $folder"

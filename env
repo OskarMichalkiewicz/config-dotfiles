@@ -3,8 +3,6 @@
 export STOW_FOLDERS="bin,nvim,tmux,zsh"
 export DOTFILES=$HOME/dotfiles
 
-source $DOTFILES/env
-
 addToPath() {
     if [[ "$PATH" != *"$1"* ]]; then
         export PATH=$PATH:$1
