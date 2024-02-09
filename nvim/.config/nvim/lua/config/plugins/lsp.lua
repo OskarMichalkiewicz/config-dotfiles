@@ -11,13 +11,38 @@ return {
 		"L3MON4D3/LuaSnip",
 		"saadparwaiz1/cmp_luasnip",
 		"j-hui/fidget.nvim",
-    "rafamadriz/friendly-snippets",
+		"rafamadriz/friendly-snippets",
 	},
 
 	config = function()
+		vim.diagnostic.config({
+			underline = true,
+			update_in_insert = false,
+			severity_sort = true,
+			virtual_text = true,
+			-- For lsp_lines
+			virtual_lines = true,
+			float = {
+				border = { "🭽", "▔", "🭾", "▕", "🭿", "▁", "🭼", "▏" },
+				format = function(diagnostic)
+					if diagnostic.source == "eslint" then
+						return string.format(
+							"%s [%s]",
+							diagnostic.message,
+							-- shows the name of the rule
+							diagnostic.user_data.lsp.code
+						)
+					end
+					return string.format("%s [%s]", diagnostic.message, diagnostic.source)
+				end,
+				severity_sort = true,
+				close_events = { "BufLeave", "CursorMoved", "InsertEnter", "FocusLost" },
+				max_width = 80,
+			},
+		})
 		local cmp = require("cmp")
 		local cmp_lsp = require("cmp_nvim_lsp")
-    require("luasnip.loaders.from_vscode").lazy_load()
+		require("luasnip.loaders.from_vscode").lazy_load()
 		local capabilities = vim.tbl_deep_extend(
 			"force",
 			{},
@@ -64,10 +89,10 @@ return {
 					require("luasnip").lsp_expand(args.body)
 				end,
 			},
-      window = {
-        completion = cmp.config.window.bordered(),
-        documentation = cmp.config.window.bordered(),
-      },
+			window = {
+				completion = cmp.config.window.bordered(),
+				documentation = cmp.config.window.bordered(),
+			},
 			mapping = cmp.mapping.preset.insert({
 				["<Tab-k>"] = cmp.mapping.select_prev_item(cmp_select),
 				["<Tab-j>"] = cmp.mapping.select_next_item(cmp_select),
