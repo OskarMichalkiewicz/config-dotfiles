@@ -81,26 +81,26 @@ vim.keymap.set("n", "<C-S-N>", function()
 	require("harpoon"):list():next()
 end)
 -- telescope
-vim.keymap.set("n", "<leader>pf", require("telescope").find_files, {})
-vim.keymap.set("n", "<leader>pg", require("telescope").git_files, {})
+vim.keymap.set("n", "<leader>pf", require("telescope.builtin").find_files, {})
+vim.keymap.set("n", "<leader>pg", require("telescope.builtin").git_files, {})
 vim.keymap.set("n", "<leader>pws", function()
 	local word = vim.fn.expand("<cword>")
-	require("telescope").grep_string({ search = word })
+	require("telescope.builtin").grep_string({ search = word })
 end)
 vim.keymap.set("n", "<leader>pWs", function()
 	local word = vim.fn.expand("<cWORD>")
-	require("telescope").grep_string({ search = word })
+	require("telescope.builtin").grep_string({ search = word })
 end)
 vim.keymap.set("n", "<leader>ps", function()
-	require("telescope").grep_string({ search = vim.fn.input("Grep > ") })
+	require("telescope.builtin").grep_string({ search = vim.fn.input("Grep > ") })
 end)
-vim.keymap.set("n", "<leader>vh", require("telescope").help_tags, {})
+vim.keymap.set("n", "<leader>vh", require("telescope.builtin").help_tags, {})
 --undotree
 vim.keymap.set("n", "<leader>u", vim.cmd.UndotreeToggle)
 --lsp
 autocmd("LspAttach", {
 	callback = function(e)
-		local opts = { buffer = e.buf }
+		opts = { buffer = e.buf }
 		vim.keymap.set("n", "gd", function()
 			vim.lsp.buf.definition()
 		end, opts)
