@@ -1,3 +1,6 @@
+local bufnr = vim.api.nvim_get_current_buf()
+local opts = { buffer = bufnr, remap = false }
+local autocmd = vim.api.nvim_create_autocmd
 vim.g.mapleader = " "
 vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
 
@@ -28,3 +31,105 @@ vim.keymap.set("n", "<leader>j", "<cmd>lprev<CR>zz")
 
 vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
 vim.keymap.set("n", "<leader>x", "<cmd>!chmod +x %<CR>", { silent = true })
+
+vim.keymap.set("", "<up>", "<nop>")
+vim.keymap.set("", "<down>", "<nop>")
+vim.keymap.set("", "<left>", "<nop>")
+vim.keymap.set("", "<right>", "<nop>")
+
+vim.keymap.set("n", "C-s", ":w<CR>")
+
+-- fugitive
+
+vim.keymap.set("n", "<leader>p", function()
+	vim.cmd.Git("push")
+end, opts)
+vim.keymap.set("n", "<leader>P", function()
+	vim.cmd.Git({ "pull", "--rebase" })
+end, opts)
+vim.keymap.set("n", "<leader>t", ":Git push -u origin ", opts)
+
+--gitsigns
+
+vim.keymap.set("n", "<leader>gp", ":Gitsigns preview_hunk<CR>")
+vim.keymap.set("n", "<leader>gt", ":Gitsigns toggle_current_line_blame<CR>")
+-- harpoon
+
+vim.keymap.set("n", "<leader>a", function()
+	require("harpoon"):list():append()
+end)
+vim.keymap.set("n", "<C-a>", function()
+	require("harpoon").ui:toggle_quick_menu(require("harpoon"):list())
+end)
+vim.keymap.set("n", "<C-1>", function()
+	require("harpoon"):list():select(1)
+end)
+vim.keymap.set("n", "<C-2>", function()
+	require("harpoon"):list():select(2)
+end)
+vim.keymap.set("n", "<C-3>", function()
+	require("harpoon"):list():select(3)
+end)
+vim.keymap.set("n", "<C-4>", function()
+	require("harpoon"):list():select(4)
+end)
+-- Toggle previous & next buffers stored within Harpoon list
+vim.keymap.set("n", "<C-S-P>", function()
+	require("harpoon"):list():prev()
+end)
+vim.keymap.set("n", "<C-S-N>", function()
+	require("harpoon"):list():next()
+end)
+-- telescope
+vim.keymap.set("n", "<leader>pf", require("telescope").find_files, {})
+vim.keymap.set("n", "<leader>pg", require("telescope").git_files, {})
+vim.keymap.set("n", "<leader>pws", function()
+	local word = vim.fn.expand("<cword>")
+	require("telescope").grep_string({ search = word })
+end)
+vim.keymap.set("n", "<leader>pWs", function()
+	local word = vim.fn.expand("<cWORD>")
+	require("telescope").grep_string({ search = word })
+end)
+vim.keymap.set("n", "<leader>ps", function()
+	require("telescope").grep_string({ search = vim.fn.input("Grep > ") })
+end)
+vim.keymap.set("n", "<leader>vh", require("telescope").help_tags, {})
+--undotree
+vim.keymap.set("n", "<leader>u", vim.cmd.UndotreeToggle)
+--lsp
+autocmd("LspAttach", {
+	callback = function(e)
+		local opts = { buffer = e.buf }
+		vim.keymap.set("n", "gd", function()
+			vim.lsp.buf.definition()
+		end, opts)
+		vim.keymap.set("n", "K", function()
+			vim.lsp.buf.hover()
+		end, opts)
+		vim.keymap.set("n", "<leader>vws", function()
+			vim.lsp.buf.workspace_symbol()
+		end, opts)
+		vim.keymap.set("n", "<leader>vd", function()
+			vim.diagnostic.open_float()
+		end, opts)
+		vim.keymap.set("n", "<leader>ca", function()
+			vim.lsp.buf.code_action()
+		end, opts)
+		vim.keymap.set("n", "<leader>rr", function()
+			vim.lsp.buf.references()
+		end, opts)
+		vim.keymap.set("n", "<leader>rn", function()
+			vim.lsp.buf.rename()
+		end, opts)
+		vim.keymap.set("i", "<C-h>", function()
+			vim.lsp.buf.signature_help()
+		end, opts)
+		vim.keymap.set("n", "[d", function()
+			vim.diagnostic.goto_next()
+		end, opts)
+		vim.keymap.set("n", "]d", function()
+			vim.diagnostic.goto_prev()
+		end, opts)
+	end,
+})
