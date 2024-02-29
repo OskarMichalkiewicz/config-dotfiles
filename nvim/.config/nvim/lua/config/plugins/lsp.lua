@@ -57,6 +57,10 @@ return {
 				"lua_ls",
 				"rust_analyzer",
 				"tsserver",
+				"unocss",
+			},
+			opts = {
+				auto_install = true,
 			},
 			handlers = {
 				function(server_name) -- default handler (optional)

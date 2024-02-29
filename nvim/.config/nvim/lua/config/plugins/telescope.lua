@@ -14,6 +14,10 @@ return {
     local action_layout = require("telescope.actions.layout")
     require("telescope").setup({
       defaults = {
+        file_ignore_patterns = {
+          'node_modules',
+          '.git',
+        },
         layout_config = {
           horizontal = {
             prompt_position = "top",
@@ -30,7 +34,7 @@ return {
       },
       pickers = {
         find_files = {
-          find_command = { "rg", "--files", "--hidden", "-g", "!.git" },
+          find_command = { "rg", "--files", "--hidden", '--ignore', '-u' },
         },
         buffers = {
           ignore_current_buffer = true,
