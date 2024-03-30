@@ -43,9 +43,28 @@ return {
     },
   },
   {
+    "scottmckendry/cyberdream.nvim",
+    lazy = false,
+    priority = 1000,
+    config = function()
+      require("cyberdream").setup({
+        transparent = true,
+        italic_comments = true,
+        hide_fillchars = true,
+        borderless_telescope = true,
+        terminal_colors = true,
+        theme = {
+          colors = {
+            blue = '#8300a0',
+          }
+        }
+      })
+    end,
+  },
+  {
     "LazyVim/LazyVim",
     opts = {
-      colorscheme = "catppuccin",
+      colorscheme = "cyberdream",
     },
   },
 }

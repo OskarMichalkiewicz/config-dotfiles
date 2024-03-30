@@ -3,6 +3,8 @@ return {
   config = function()
     require('lualine').setup({
       options = {
+        disabled_filetypes = { 'NvimTree' },
+        theme = "auto",
         icons_enabled = true,
         component_separators = '|',
         section_separators = '',
@@ -15,11 +17,6 @@ return {
             color = { fg = "#ff9e64" },
           }
         },
-        lualine_a = {
-          {
-            'buffers',
-          }
-        }
       }
     })
   end
