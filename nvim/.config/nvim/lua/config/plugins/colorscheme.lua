@@ -56,6 +56,10 @@ return {
         theme = {
           colors = {
             blue = '#8300a0',
+            purple = "#ff5ea0",
+            bg = "#0a0c14",
+            pink = "#00d9e9"
+
           }
         }
       })

@@ -9,6 +9,11 @@ return {
     require("nvim-tree").setup({
       filters = { dotfiles = false, git_ignored = false },
       auto_reload_on_write = true,
+      actions = {
+        open_file = {
+          quit_on_open = true,
+        },
+      },
       view = {
         centralize_selection = false,
         cursorline = true,
