@@ -1,6 +1,6 @@
 #!/usr/bin/env zsh
 
-export STOW_FOLDERS="bin,nvim,tmux,zsh,starship"
+export STOW_FOLDERS="alacritty,bin,nvim,tmux,zsh,starship"
 export DOTFILES=$HOME/dotfiles
 
 addToPath() {

@@ -1,0 +1,78 @@
+live_config_reload = true
+[window]
+decorations = "None"
+decorations_theme_variant = "Dark"
+opacity = 0.8
+[font]
+normal = { family = "FiraMono Nerd Font Mono", style = "Regular" }
+bold = { family = "FiraMono Nerd Font Mono", style = "Bold" }
+italic = { family = "FiraMono Nerd Font Mono", style = "Italic" }
+bold_italic = { family = "FiraMono Nerd Font Mono", style = "Bold Italic" }
+size = 12
+[colors]
+transparent_background_colors = true
+# Default colors
+#[colors.primary]
+#background = '#080a0f'
+#foreground = '#d8d8d8'
+#[colors.normal]
+#black = "#1E0528"
+#blue = "#550068"
+#cyan = "#8300a0"
+#green = "#05CB0D"
+#magenta = "#8991BB"
+#red = "#00D9E9"
+#white = "#FFEEFF"
+#yellow = "#955AE7"
+#purple = "#ffbd5e"
+#[colors.bright]
+#black = "#320F55"
+#blue = "#550068"
+#cyan = "#B900B1"
+#green = "#05CB0D"
+#magenta = "#8991BB"
+#red = "#00D9E9"
+#white = "#F8C0FF"
+#yellow = "#955AE7"
+
+# cyberdream theme for alacritty
+[[colors.indexed_colors]]
+color = "0xffbd5e"
+index = 16
+
+[[colors.indexed_colors]]
+color = "0xff6e5e"
+index = 17
+
+[colors.bright]
+black = "0x3c4048"
+blue = "0x8300a0"
+cyan = "0x8300a0"
+green = "0x5eff6c"
+magenta = "0xff5ea0"
+red = "0xff6e5e"
+white = "0xffffff"
+yellow = "0xf1ff5e"
+
+[colors.normal]
+black = "0x0a0c14"
+blue = "0x8300a0"
+cyan = "0x8300a0"
+green = "0x5eff6c"
+magenta = "0xff5ea0"
+red = "0xff6e5e"
+white = "0xffffff"
+yellow = "0xf1ff5e"
+
+[colors.primary]
+background = "0x0a0c14"
+foreground = "0xffffff"
+
+[colors.selection]
+background = "0x3c4048"
+foreground = "0xffffff"
+
+
+
+
+
