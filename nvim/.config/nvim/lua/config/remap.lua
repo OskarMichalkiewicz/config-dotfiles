@@ -37,7 +37,7 @@ vim.keymap.set("", "<down>", "<nop>")
 vim.keymap.set("", "<left>", "<nop>")
 vim.keymap.set("", "<right>", "<nop>")
 
-vim.keymap.set("n", "C-s", ":w<CR>")
+vim.keymap.set({ "n", "v", "i" }, "<C-s>", ":w<CR>", { noremap = true })
 
 -- fugitive
 
@@ -149,3 +149,5 @@ vim.keymap.set("n", "<leader>ony", "<cmd>ObsidianYesterday<CR>", { desc = "New D
 
 vim.keymap.set("n", "<C-e>", ":NvimTreeFindFileToggle<CR>", { noremap = true })
 vim.keymap.set({ "n", "v", "i" }, "<C-x>", ":bd<CR>", { noremap = true })
+vim.keymap.set({ "n", "v", "i" }, "<S-h>", ":bprev<CR>", { noremap = true })
+vim.keymap.set({ "n", "v", "i" }, "<S-l>", ":bnext<CR>", { noremap = true })
