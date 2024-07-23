@@ -49,16 +49,26 @@ return {
     config = function()
       require("cyberdream").setup({
         transparent = true,
-        italic_comments = true,
+        italic_comments = false,
         hide_fillchars = true,
         borderless_telescope = true,
         terminal_colors = true,
         theme = {
+          variant = 'light',
           colors = {
-            blue = '#8300a0',
-            purple = "#ff5ea0",
-            bg = "#0a0c14",
-            pink = "#00d9e9"
+            -- pink = '#8300a0',
+            --pink = '#ff1273',
+            --purple = "#8300a0",
+            --bg = "#0a0c14",
+            bg = "#16181a",
+            bgAlt = "#1e2124",
+            bgHighlight = "#3c4048",
+            fg = "#fbfbf1",
+            green = "#05cb0d",
+            --orange = "#FF9E12",
+            --orange = "#ff6e4e",
+            --blue = "#bd5eff"
+
 
           }
         }
