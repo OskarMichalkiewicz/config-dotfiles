@@ -9,6 +9,9 @@ return {
     require("nvim-tree").setup({
       filters = { dotfiles = false, git_ignored = false },
       auto_reload_on_write = true,
+      git = {
+        timeout = 5000,
+      },
       actions = {
         open_file = {
           quit_on_open = true,

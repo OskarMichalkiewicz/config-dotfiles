@@ -54,20 +54,21 @@ return {
         borderless_telescope = true,
         terminal_colors = true,
         theme = {
-          variant = 'light',
+          variant = 'dark',
           colors = {
-            -- pink = '#8300a0',
-            --pink = '#ff1273',
-            --purple = "#8300a0",
-            --bg = "#0a0c14",
-            bg = "#16181a",
-            bgAlt = "#1e2124",
-            bgHighlight = "#3c4048",
-            fg = "#fbfbf1",
+            -- bg = "#16181a",
+            -- bgAlt = "#1e2124",
+            -- bgHighlight = "#3c4048",
+            -- fg = "#fbfbf1",
             green = "#05cb0d",
-            --orange = "#FF9E12",
-            --orange = "#ff6e4e",
-            --blue = "#bd5eff"
+            blue = "#0057d1",
+            cyan = "#008c99",
+            red = "#d11500",
+            yellow = "#997b00",
+            magenta = "#d100bf",
+            pink = "#f40064",
+            orange = "#d17c00",
+            purple = "#a018ff",
 
 
           }

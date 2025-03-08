@@ -2,11 +2,11 @@ local bufnr = vim.api.nvim_get_current_buf()
 local opts = { buffer = bufnr, remap = false }
 local autocmd = vim.api.nvim_create_autocmd
 vim.g.mapleader = " "
-vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
 
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
 
+-- add centering to motions
 vim.keymap.set("n", "J", "mzJ`z")
 vim.keymap.set("n", "<C-d>", "<C-d>zz")
 vim.keymap.set("n", "<C-u>", "<C-u>zz")
@@ -29,15 +29,15 @@ vim.keymap.set("n", "<C-j>", "<cmd>cprev<CR>zz")
 vim.keymap.set("n", "<leader>k", "<cmd>lnext<CR>zz")
 vim.keymap.set("n", "<leader>j", "<cmd>lprev<CR>zz")
 
-vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
-vim.keymap.set("n", "<leader>x", "<cmd>!chmod +x %<CR>", { silent = true })
+vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]], { desc = "Find and replace" })
+vim.keymap.set("n", "<leader>x", "<cmd>!chmod +x %<CR>", { silent = true, desc = "Give execution privileges" })
 
 vim.keymap.set("", "<up>", "<nop>")
 vim.keymap.set("", "<down>", "<nop>")
 vim.keymap.set("", "<left>", "<nop>")
 vim.keymap.set("", "<right>", "<nop>")
 
-vim.keymap.set({ "n", "v", "i" }, "<C-s>", ":w<CR>", { noremap = true })
+vim.keymap.set("n", "<C-s>", ":w<CR>", { noremap = true })
 
 -- fugitive
 
@@ -148,6 +148,6 @@ vim.keymap.set("n", "<leader>ont", "<cmd>ObsidianToday<CR>", { desc = "New Daily
 vim.keymap.set("n", "<leader>ony", "<cmd>ObsidianYesterday<CR>", { desc = "New Daily Note Yesterday" })
 
 vim.keymap.set("n", "<C-e>", ":NvimTreeFindFileToggle<CR>", { noremap = true })
-vim.keymap.set({ "n", "v", "i" }, "<C-x>", ":bd<CR>", { noremap = true })
-vim.keymap.set({ "n", "v", "i" }, "<S-h>", ":bprev<CR>", { noremap = true })
-vim.keymap.set({ "n", "v", "i" }, "<S-l>", ":bnext<CR>", { noremap = true })
+vim.keymap.set("n", "<C-x>", ":bd<CR>", { noremap = true })
+vim.keymap.set("n", "<S-h>", ":bprev<CR>", { noremap = true })
+vim.keymap.set("n", "<S-l>", ":bnext<CR>", { noremap = true })

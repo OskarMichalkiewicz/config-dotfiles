@@ -3,3 +3,5 @@ export STARSHIP_CONFIG=~/starship.toml
 
 alias vim=nvim
 source ~/.zsh_profile
+
+PATH=~/.console-ninja/.bin:$PATH

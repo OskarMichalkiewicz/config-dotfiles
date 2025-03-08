@@ -1,0 +1,15 @@
+[window]
+decorations = "None"
+decorations_theme_variant = "Dark"
+opacity = 0.9
+[font]
+normal = { family = "FiraMono Nerd Font Mono", style = "Regular" }
+bold = { family = "FiraMono Nerd Font Mono", style = "Bold" }
+italic = { family = "FiraMono Nerd Font Mono", style = "Italic" }
+bold_italic = { family = "FiraMono Nerd Font Mono", style = "Bold Italic" }
+size = 12
+[colors]
+transparent_background_colors = true
+
+[general]
+live_config_reload = true
