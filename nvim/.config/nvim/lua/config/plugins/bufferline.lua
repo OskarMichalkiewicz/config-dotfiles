@@ -5,6 +5,7 @@ return {
   config = function()
     require("bufferline").setup({
       options = {
+        show_tab_indicators = true,
         offsets = {
           {
             filetype = "NvimTree",

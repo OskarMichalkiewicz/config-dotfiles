@@ -4,7 +4,7 @@ local autocmd = vim.api.nvim_create_autocmd
 vim.g.mapleader = " "
 
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
-vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
+-- vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
 
 -- add centering to motions
 vim.keymap.set("n", "J", "mzJ`z")
