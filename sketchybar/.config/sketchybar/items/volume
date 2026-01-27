@@ -3,26 +3,26 @@
 source "$CONFIG_DIR/environment"
 source "$THEME_DIR/tokyonight"
 
-sketchybar --add item battery_spacer_right right \
-           --set      battery_spacer_right \
+sketchybar --add item volume_spacer_right right \
+           --set      volume_spacer_right \
                       background.drawing=off
 
-sketchybar --add item battery right \
-                      --set battery  \
+sketchybar --add item volume right \
+                      --set volume  \
+                      script="$PLUGIN_DIR/volume.sh" \
+                      icon.drawing=on \
                       background.drawing=off \
-                      label.color="$LABEL_COLOR" \
+                      icon.color="$LABEL_COLOR" \
                       label.padding_left=0 \
                       label.padding_right=0 \
-                      update_freq=120 \
-                      script="$PLUGIN_DIR/battery" \
-                      --subscribe battery system_woke power_source_change
+                      --subscribe volume volume_change 
 
-sketchybar --add item battery_spacer_left right \
-           --set      battery_spacer_left \
+sketchybar --add item volume_spacer_left right \
+           --set      volume_spacer_left \
                       background.drawing=off
 
-sketchybar --add bracket battery_bracket battery_spacer_left battery  battery_spacer_right\
-           --set         battery_bracket \
+sketchybar --add bracket volume_bracket volume_spacer_left volume volume_spacer_right\
+           --set         volume_bracket \
                          background.corner_radius="$BRACKET_BACKGROUND_CORNER_RADIUS" \
                          background.color="$BRACKET_BACKGROUND_COLOR" \
                          background.border_color="$BRACKET_BACKGROUND_BORDER_COLOR" \

@@ -46,6 +46,11 @@ source "$ITEM_DIR/front_app"
 source "$ITEM_DIR/clock"
 source "$ITEM_DIR/spacer_right"
 source "$ITEM_DIR/battery"
+sketchybar --add item bracket_spacer_right_2 right \
+           --set      bracket_spacer_right_2 \
+                      width=10 \
+                      background.drawing=off
+source "$ITEM_DIR/volume"
 
 # Automatically apply configuration changes
 sketchybar --hotload on

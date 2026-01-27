@@ -2,5 +2,5 @@
 
 sketchybar --add item bracket_spacer_left left \
            --set      bracket_spacer_left \
-                      width=20 \
+                      width=10 \
                       background.drawing=off

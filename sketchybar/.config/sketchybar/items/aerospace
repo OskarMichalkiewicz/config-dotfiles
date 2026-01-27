@@ -3,6 +3,9 @@
 source "$CONFIG_DIR/environment"
 source "$THEME_DIR/tokyonight"
 
+
+ idsMap=("一" "二" "三" "四" "五" "六" "七" "八" "九" "十")
+
 create_workspace_bracket_for_monitor() {
   parameters=("$@")
   monitor_id=${parameters[0]}
@@ -21,8 +24,9 @@ create_workspace_bracket_for_monitor() {
                          --set       workspaces."$monitor_id"."$workspace_id" \
                                      background.drawing=off \
                                      click_script="aerospace workspace $workspace_id" \
-                                     label="$workspace_id" \
+                                     label="${idsMap[$workspace_id - 1]}" \
                                      label.width="25" \
+                                     label.y_offset="-1" \
                                      script="$PLUGIN_DIR/aerospace $workspace_id"
   done
 

@@ -4,8 +4,14 @@
 # You can use it to add commands that run after AeroSpace startup.
 # Available commands : https://nikitabobko.github.io/AeroSpace/commands
 after-startup-command = [
-  'exec-and-forget sketchybar',
-  'exec-and-forget borders'
+    '''exec-and-forget 
+        killall sketchybar
+        sketchybar
+    ''',
+    '''exec-and-forget 
+        killall borders 
+        borders
+    ''',
 ]
 
 # Start AeroSpace at login
@@ -63,7 +69,7 @@ exec-on-workspace-change = [
     inner.vertical =   8
     outer.left =       8
     outer.bottom =     8
-    outer.top =        [{monitor.main = 2}, {monitor.secondary = 36}, 2]
+    outer.top =        [{monitor.main = 4}, {monitor.secondary = 36}, 2]
     outer.right =      8
 
 [[on-window-detected]]
