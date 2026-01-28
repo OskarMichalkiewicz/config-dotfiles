@@ -1,17 +1,21 @@
 return {
-  'akinsho/bufferline.nvim',
-  version = "*",
-  dependencies = 'nvim-tree/nvim-web-devicons',
-  config = function()
-    require("bufferline").setup({
-      options = {
-        show_tab_indicators = true,
-        offsets = {
-          {
-            filetype = "NvimTree",
-          }
-        }
-      }
-    })
-  end
+	"akinsho/bufferline.nvim",
+	version = "*",
+	config = function()
+		local bufferline = require("bufferline")
+		bufferline.setup({
+			options = {
+				show_tab_indicators = true,
+				separator_style = "thick",
+				style_preset = {
+					bufferline.style_preset.minimal,
+				},
+				offsets = {
+					{
+						filetype = "NvimTree",
+					},
+				},
+			},
+		})
+	end,
 }
