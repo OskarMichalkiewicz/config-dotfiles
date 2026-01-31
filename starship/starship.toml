@@ -10,15 +10,15 @@ format = "[ $path ]($style)"
 truncation_length = 3
 
 [directory.substitutions]
-"Documents" = "󰈙 "
-"Downloads" = " "
+"Documents" = "🖫 "
+"Downloads" = "🢳"
 "Music" = " "
 "Pictures" = " "
 
 [git_branch]
-symbol = ""
+symbol = ""
 style = "fg:#ff9e64"
-format = '[ $symbol $branch ]($style)'
+format = '[$symbol $branch ]($style)'
 
 [git_status]
 style = "fg:#9ece6a"

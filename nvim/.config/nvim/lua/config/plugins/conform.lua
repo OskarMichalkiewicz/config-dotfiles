@@ -1,3 +1,4 @@
+local prettier_config = require("config.utils.prettier-config")
 return {
 	"stevearc/conform.nvim",
 	lazy = true,
@@ -7,22 +8,36 @@ return {
 
 		conform.setup({
 			formatters_by_ft = {
-				javascript = { "prettier" },
-				typescript = { "prettier" },
-				javascriptreact = { "prettier" },
-				typescriptreact = { "prettier" },
-				svelte = { "prettier" },
-				css = { "prettier" },
-				html = { "prettier" },
-				json = { "prettier" },
-				yaml = { "prettier" },
-				markdown = { "prettier" },
-				graphql = { "prettier" },
-				lua = { "stylua" },
+				javascript = { "prettier", stop_after_first = true },
+				typescript = { "prettier", stop_after_first = true },
+				javascriptreact = { "prettier", stop_after_first = true },
+				typescriptreact = { "prettier", stop_after_first = true },
+				svelte = { "prettier", stop_after_first = true },
+				css = { "prettier", stop_after_first = true },
+				html = { "prettier", stop_after_first = true },
+				json = { "prettier", stop_after_first = true },
+				yaml = { "prettier", stop_after_first = true },
+				markdown = { "prettier", stop_after_first = true },
+				graphql = { "prettier", stop_after_first = true },
+				lua = { "stylua", stop_after_first = true },
 				python = { "isort", "black" },
 			},
+			formatters = {
+				prettier = {
+					command = "prettier",
+					args = function()
+						local filename = vim.api.nvim_buf_get_name(0)
+						local config = prettier_config.resolve()
+						print(config)
+						if config then
+							return { "--config", config, "--stdin-filepath", filename, "--log-level warn --write" }
+						end
+						return { "--stdin-filepath", filename, "--log-level warn --write" }
+					end,
+				},
+			},
 			format_on_save = {
-				lsp_fallback = true,
+				lsp_fallback = false,
 				async = false,
 				timeout_ms = 1000,
 			},
@@ -30,7 +45,7 @@ return {
 
 		vim.keymap.set({ "n", "v" }, "<leader>f", function()
 			conform.format({
-				lsp_fallback = true,
+				lsp_fallback = false,
 				async = false,
 				timeout_ms = 1000,
 			})
