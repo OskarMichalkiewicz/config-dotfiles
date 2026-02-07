@@ -28,7 +28,6 @@ return {
 					args = function()
 						local filename = vim.api.nvim_buf_get_name(0)
 						local config = prettier_config.resolve()
-						print(config)
 						if config then
 							return { "--config", config, "--stdin-filepath", filename, "--log-level warn --write" }
 						end
@@ -36,18 +35,18 @@ return {
 					end,
 				},
 			},
-			format_on_save = {
-				lsp_fallback = false,
-				async = false,
-				timeout_ms = 1000,
+			format_after_save = {
+				lsp_fallback = true,
+				async = true,
+				timeout_ms = 2500,
 			},
 		})
 
 		vim.keymap.set({ "n", "v" }, "<leader>f", function()
 			conform.format({
-				lsp_fallback = false,
-				async = false,
-				timeout_ms = 1000,
+				lsp_fallback = true,
+				async = true,
+				timeout_ms = 2500,
 			})
 		end, { desc = "Format file or range (in visual mode)" })
 	end,
