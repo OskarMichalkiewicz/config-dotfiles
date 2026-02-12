@@ -1,0 +1,60 @@
+return {
+	-- "blazejkustra/react-compiler-marker",
+	-- ft = { "javascript", "javascriptreact", "typescript", "typescriptreact" },
+	-- build = "./scripts/build-nvim.sh",
+	-- opts = {},
+	-- config = function()
+	-- 	require("react-compiler-marker").setup({
+	-- 		-- Visual settings
+	-- 		emojis = {
+	-- 			success = "", -- Successfully optimized
+	-- 			error = "💩", -- Failed to optimize
+	-- 		},
+	--
+	-- 		-- Inlay hint settings
+	-- 		inlay_hints = {
+	-- 			enabled = true,
+	-- 			only_current_line = false,
+	-- 			hide_in_insert_mode = true,
+	-- 		},
+	--
+	-- 		-- Auto-refresh settings
+	-- 		auto_refresh = {
+	-- 			on_save = true,
+	-- 			on_text_change = true,
+	-- 			debounce_ms = 300,
+	-- 		},
+	--
+	-- 		-- Keybindings (set to false to disable)
+	-- 		keybindings = {
+	-- 			check = "<leader>rcc", -- Check/refresh current file
+	-- 			preview = "<leader>rcp", -- Preview compiled output
+	-- 			status = "<leader>rcs", -- Show status
+	-- 			toggle = "<leader>rct", -- Toggle activation
+	-- 			refresh = "<leader>rr", -- Manual refresh (buffer-local)
+	-- 		},
+	--
+	-- 		-- Notifications
+	-- 		notifications = {
+	-- 			enabled = true,
+	-- 			level = "info", -- "off", "error", "warn", "info"
+	-- 		},
+	--
+	-- 		-- LSP server settings
+	-- 		server = {
+	-- 			path = nil, -- Auto-detect
+	-- 			node_path = "node",
+	-- 		},
+	--
+	-- 		-- Enable/disable on startup
+	-- 		enabled = true,
+	-- 		autostart = true,
+	--
+	-- 		-- File types to attach to
+	-- 		filetypes = { "javascript", "javascriptreact", "typescript", "typescriptreact" },
+	--
+	-- 		-- Logging level
+	-- 		log_level = "warn", -- "off", "error", "warn", "info", "debug", "trace"
+	-- 	})
+	-- end,
+}
