@@ -1,0 +1,29 @@
+#!/usr/bin/env bash
+
+source "$CONFIG_DIR/environment"
+source "$THEME_DIR/tokyonight"
+
+sketchybar --add item zmk_battery_spacer_right right \
+           --set      zmk_battery_spacer_right \
+                      background.drawing=off
+
+sketchybar --add item zmk_battery right \
+           --set zmk_battery \
+           script="$PLUGIN_DIR/zmk_battery" \
+           icon.drawing=off \
+           background.drawing=off \
+           label.color="$LABEL_COLOR" \
+           label.padding_left=2 \
+           label.padding_right=2 \
+           update_freq=60
+
+sketchybar --add item zmk_battery_spacer_left right \
+           --set      zmk_battery_spacer_left \
+                      background.drawing=off
+
+sketchybar --add bracket zmk_battery_bracket zmk_battery_spacer_left zmk_battery zmk_battery_spacer_right\
+           --set         zmk_battery_bracket \
+                         background.corner_radius="$BRACKET_BACKGROUND_CORNER_RADIUS" \
+                         background.color="$BRACKET_BACKGROUND_COLOR" \
+                         background.border_color="$BRACKET_BACKGROUND_BORDER_COLOR" \
+                         background.border_width="$BRACKET_BACKGROUND_BORDER_WIDTH"

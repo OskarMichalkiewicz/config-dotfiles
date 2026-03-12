@@ -1,0 +1,21 @@
+#!/bin/bash
+
+BATTERY_INFO=$(pmset -g accps 2>/dev/null | grep -iE "keyboard|zmk|totem" | head -1)
+
+if [ -z "$BATTERY_INFO" ]; then
+    sketchybar --set $NAME label="?"
+    exit 0
+fi
+
+KEYBOARD_NAME=$(echo "$BATTERY_INFO" | sed 's/.*-\s*\([^ (]*\).*/\1/' | tr -d ' ')
+KEYBOARD_NAME_UPPER=$(echo "$KEYBOARD_NAME" | tr '[:lower:]' '[:upper:]')
+
+ALL_BATTERY_INFO=$(pmset -g accps 2>/dev/null | grep -i "$KEYBOARD_NAME")
+
+LEFT_BATT=$(echo "$ALL_BATTERY_INFO" | head -1 | grep -oE '[0-9]+%' | tr -d '%')
+RIGHT_BATT=$(echo "$ALL_BATTERY_INFO" | tail -1 | grep -oE '[0-9]+%' | tr -d '%')
+
+if [ -z "$LEFT_BATT" ]; then LEFT_BATT="?"; fi
+if [ -z "$RIGHT_BATT" ]; then RIGHT_BATT="?"; fi
+
+sketchybar --set $NAME label="${LEFT_BATT}%  ${KEYBOARD_NAME_UPPER}  ${RIGHT_BATT}%"

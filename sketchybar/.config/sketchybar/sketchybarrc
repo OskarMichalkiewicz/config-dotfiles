@@ -51,6 +51,11 @@ sketchybar --add item bracket_spacer_right_2 right \
                       width=10 \
                       background.drawing=off
 source "$ITEM_DIR/volume"
+sketchybar --add item zmk_battery_spacer right \
+           --set      zmk_battery_spacer \
+                      width=10 \
+                      background.drawing=off
+source "$ITEM_DIR/zmk_battery"
 
 # Automatically apply configuration changes
 sketchybar --hotload on
