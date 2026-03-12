@@ -8,6 +8,7 @@ source $DOTFILES/env
 for folder in $(echo $STOW_FOLDERS | sed "s/,/ /g")
 do
     echo "stow $folder"
+    rm -f "$HOME/.$folder" 2>/dev/null
     stow -D $folder
     stow $folder
 done

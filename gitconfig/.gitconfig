@@ -1,0 +1,9 @@
+[user]
+	name = Oskar Michalkiewicz
+	email = oskar.michalkiewicz@gmail.com
+[alias]
+	rac = "!f() { \n    target=\"$1\"; \n    original=$(git branch --show-current); \n    temp=\"temp-$(date +%s)\"; \n    git checkout -b \"$temp\"; \n    git checkout \"$original\"; \n    git reset --hard \"$target\"; \n    git cherry-pick \"$temp\"; \n    git branch -D \"$temp\"; \n}; f"
+	s = status -sb
+	cm = commit -m
+	amend = commit --amend --no-edit
+	aliases = !git config --get-regexp ^alias\\. | sed -e s/^alias\\.// -e s/\\ /\\ =\\ /
