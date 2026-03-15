@@ -21,7 +21,7 @@ return {
 				auto_show_delay_ms = 500,
 			},
 			signature = {
-				enables = true,
+				enabled = true,
 			},
 		},
 		appearance = {
