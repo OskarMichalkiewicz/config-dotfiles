@@ -1,6 +1,11 @@
 #!/usr/bin/env zsh
 
-export STOW_FOLDERS="alacritty,bin,nvim,tmux,zsh,starship,aerospace,sketchybar,jankyborders,gitconfig"
+# Load local environment variables
+if [ -f "$DOTFILES/.env" ]; then
+    source "$DOTFILES/.env"
+fi
+
+export STOW_FOLDERS="alacritty,bin,nvim,tmux,zsh,starship,aerospace,sketchybar,jankyborders,gitconfig,opencode"
 export DOTFILES=$HOME/dotfiles
 
 addToPath() {
