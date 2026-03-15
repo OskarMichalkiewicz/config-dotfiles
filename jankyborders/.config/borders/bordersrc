@@ -9,7 +9,7 @@ options=(
   active_color="$red"
   inactive_color="$blue"
   hidpi=on
-  style=square
+  style=round
   width=5.0
   blacklist="Screen Studio"
 )
