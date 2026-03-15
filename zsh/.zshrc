@@ -22,3 +22,6 @@ FNM_PATH="/opt/homebrew/opt/fnm/bin"
 if [ -d "$FNM_PATH" ]; then
   eval "`fnm env --use-on-cd --shell zsh`"
 fi
+
+# Mason LSPs for OpenCode - unified bin directory
+export PATH="$HOME/.local/share/nvim/mason/bin:$PATH"

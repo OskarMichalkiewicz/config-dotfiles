@@ -7,3 +7,6 @@
 	cm = commit -m
 	amend = commit --amend --no-edit
 	aliases = !git config --get-regexp ^alias\\. | sed -e s/^alias\\.// -e s/\\ /\\ =\\ /
+[push]
+	autoSetupRemote = true
+	default = current
